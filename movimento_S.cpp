@@ -14,7 +14,7 @@ struct Motor{
   int pinoA;            // pino que faz o motor girar para frente FORWARD
   int pinoR;            // pino que faz o motor girar para traz BACKWARD
 
-  void setup(int pAvancar, int pRecuar, int pVel){
+  void setup(int pVel, int pAvancar, int pRecuar){
     pinoA = pAvancar;
     pinoR = pRecuar;
     pinoVel = pVel;
@@ -48,10 +48,19 @@ struct Motor{
 Motor motorDireito, motorEsquerdo;
 
 void setup() {
-  motorDireito.setup(5, 4, 6);
-  motorEsquerdo.setup(9, 8, 10);
-  
-  Serial.begin(9600);
+  /**
+   *	Porta 6 - velocidade
+   *	Porta 5 - avançar
+   *	Porta 4 - recuar
+   */
+  motorDireito.setup(6, 5, 4);
+
+  /**
+   *	Porta 10 - velocidade
+   *	Porta 9  - avançar
+   *	Porta 8  - recuar
+   */  	
+  motorEsquerdo.setup(10, 9, 8);
 }
 
 void loop() {

@@ -49,38 +49,44 @@ Motor motorDireito, motorEsquerdo;
 
 void setup() {
   /**
-   *	Porta 6 - velocidade
-   *	Porta 5 - avançar
-   *	Porta 4 - recuar
+   *	Porta 10 - velocidade
+   *	Porta 9 - avançar
+   *	Porta 8 - recuar
    */
-  motorDireito.setup(6, 5, 4);
+  motorDireito.setup(10, 9, 8);
 
   /**
-   *	Porta 10 - velocidade
-   *	Porta 9  - avançar
-   *	Porta 8  - recuar
+   *	Porta 3 - velocidade
+   *	Porta 4  - avançar
+   *	Porta 5  - recuar
    */  	
-  motorEsquerdo.setup(10, 9, 8);
+  motorEsquerdo.setup(3, 4, 5);
 }
 
 void loop() {
-	// Avancar com os dois motores por 2000 milissegundos
-	motorDireito.avancar(200);
-	motorEsquerdo.avancar(200);
+	// Acionar o motor da direita a uma velocidade de 120 para frente
+	motorDireito.avancar(120);
+	// Acionar o motor da esquerda a uma velocidade de 120 para frente
+	motorEsquerdo.avancar(120);
+	// Esperar 2 segundos
 	delay(2000);
 
-	// Parar os dois motores por 500 milissegundos
+	// Parar os dois motores
 	motorDireito.parar();
 	motorEsquerdo.parar();
+	// Esperar 500 milissegundos
 	delay(500);
 	
-	// Recuar com os dois motores por 2000 milisegundos
-	motorDireito.recuar(180);
-	motorEsquerdo.recuar(180);
+	// Acionar o motor da direita a uma velocidade de 120 para tras
+	motorDireito.recuar(120);
+	// Acionar o motor da esquerda a uma velocidade de 120 para tras
+	motorEsquerdo.recuar(120);
+	// Esperar 2 segundos
 	delay(2000);
 	
-	// Parar os dois motores por 500 milissegundos
+	// Parar os dois motores
 	motorDireito.parar();
 	motorEsquerdo.parar();
+	// Esperar 500 milissegundos
 	delay(500);	
 }

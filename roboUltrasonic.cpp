@@ -67,39 +67,28 @@ Ultrasonic ultrasonic(12, 13);
 int distancia;
 
 void setup() {
-  /**
-   *	Porta 6 - velocidade
-   *	Porta 5 - avançar
-   *	Porta 4 - recuar
-   */
-  motorDireito.setup(6, 5, 4);
-
-  /**
-   *	Porta 10 - velocidade
-   *	Porta 9  - avançar
-   *	Porta 8  - recuar
-   */  	
-  motorEsquerdo.setup(10, 9, 8);
+  motorDireito.setup(10, 9, 8);
+  motorEsquerdo.setup(3, 4, 5);
 }
 
 void loop() {
   // Mede a distância até um obstáculo a frente
   distancia = ultrasonic.read();
 
-  if (distancia >= 10){
+  if (distancia >= 20){
     // Avança se a distancia for de pelo menos 10cm
-    motorDireito.avancar(200);
-    motorEsquerdo.avancar(200);
+    motorDireito.avancar(120);
+    motorEsquerdo.avancar(120);
   }
-  else if (distancia >= 5){
+  else if (distancia >= 10){
     // Para se a distância estiver entre 5cm e 10cm
     motorDireito.parar();
     motorEsquerdo.parar();
   }
   else {
     // Recua caso a distancia seja menor que 5cm
-    motorDireito.recuar(180);
-    motorEsquerdo.recuar(180);
+    motorDireito.recuar(120);
+    motorEsquerdo.recuar(120);
   }
 
   // Espera 50ms antes de tentar outra vez

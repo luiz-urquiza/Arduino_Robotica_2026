@@ -48,35 +48,24 @@ struct Motor{
 Motor motorDireito, motorEsquerdo;
 
 void setup() {
-  /**
-   *	Porta 6 - velocidade
-   *	Porta 5 - avançar
-   *	Porta 4 - recuar
-   */
-  motorDireito.setup(6, 5, 4);
-
-  /**
-   *	Porta 10 - velocidade
-   *	Porta 9  - avançar
-   *	Porta 8  - recuar
-   */  	
-  motorEsquerdo.setup(10, 9, 8);
+  motorDireito.setup(10, 9, 8);
+  motorEsquerdo.setup(3, 4, 5);
 }
 
 void loop() {
 	// Avancar com os dois motores por 2000 milissegundos
-	motorDireito.avancar(220);
-	motorEsquerdo.avancar(160);
+	motorDireito.avancar(150);
+	motorEsquerdo.avancar(100);
 	delay(2000);
 
 	// Recuar com os dois motores por 2000 milisegundos
-	motorDireito.avancar(200);
-	motorEsquerdo.avancar(200);
+	motorDireito.avancar(100);
+	motorEsquerdo.avancar(100);
 	delay(2000);
 	
 	// Avancar com os dois motores por 2000 milissegundos
-	motorDireito.avancar(160);
-	motorEsquerdo.avancar(220);
+	motorDireito.avancar(100);
+	motorEsquerdo.avancar(150);
 	delay(2000);
 
 	// Parar os dois motores por 500 milissegundos
